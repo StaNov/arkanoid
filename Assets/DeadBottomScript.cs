@@ -6,9 +6,10 @@ public class DeadBottomScript : MonoBehaviour {
 
 	public GameState gameState;
 	public BallSpawnerScript ballSpawner;
+	public SoundPlayerScript soundPlayer;
 
 	void OnTriggerEnter2D(Collider2D other) {
-		GetComponent<AudioSource>().Play();
+		soundPlayer.PlayBallHitsDeadBottom();
 		Destroy(other.gameObject);
 		gameState.loseLife();
 		ballSpawner.SpawnBall ();

@@ -6,6 +6,7 @@ public class GameState : MonoBehaviour {
 
 	public GameObject gameOverPanel;
 	public BallSpawnerScript ballSpawner;
+	public SoundPlayerScript soundPlayer;
 
 	public int lives = 3;
 	private int bricks = 1;
@@ -41,7 +42,7 @@ public class GameState : MonoBehaviour {
 			SetGameOverText(win);
 
 			if (win) {
-				GetComponent<AudioSource>().Play();
+				soundPlayer.PlayWin();
 			}
 		}
 	}
