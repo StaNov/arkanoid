@@ -12,6 +12,6 @@ public class DeadBottomScript : MonoBehaviour {
 		soundPlayer.PlayBallHitsDeadBottom();
 		Destroy(other.gameObject);
 		gameState.OnBallDestroyed();
-		ballSpawner.SpawnBall();
+		ballSpawner.SpawnBall(false);
 	}
 }

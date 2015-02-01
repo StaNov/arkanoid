@@ -12,7 +12,7 @@ public class GameState : MonoBehaviour {
 	public int lives = 3;
 
 	void Start() {
-		ballSpawner.SpawnBall ();
+		ballSpawner.SpawnBall (false);
 	}
 	
 	public void OnBallDestroyed() {

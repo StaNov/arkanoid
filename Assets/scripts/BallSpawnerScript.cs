@@ -4,12 +4,15 @@ using System.Collections;
 public class BallSpawnerScript : MonoBehaviour {
 
 	public GameObject ballPrefab;
+	public GameObject ballTemporaryPrefab;
 	public GameState gameState;
 
 
-	public void SpawnBall() {
+	public void SpawnBall(bool temporary) {
+		GameObject prefab = temporary ? ballTemporaryPrefab : ballPrefab;
+
 		if (! gameState.isGameOver ()) {
-			Instantiate (ballPrefab, transform.position, transform.rotation);
+			Instantiate (prefab, transform.position, transform.rotation);
 		}
 	}
 }

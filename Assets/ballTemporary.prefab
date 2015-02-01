@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11401026}
   - 58: {fileID: 5801026}
   m_Layer: 0
-  m_Name: ball
+  m_Name: ballTemporary
   m_TagString: ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: b4b9da5924eae1d409e7426193571a7a, type: 2}
+  - {fileID: 2100000, guid: 258c4d1cc9268a8468cb63a8f72d9441, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpeed: 10
+  temporary: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

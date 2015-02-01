@@ -4,6 +4,7 @@ using System.Collections;
 public class BallScript : MonoBehaviour {
 
 	public float ballSpeed = 10;
+	public bool temporary = false;
 
 	private SoundPlayerScript soundPlayer;
 
@@ -12,6 +13,10 @@ public class BallScript : MonoBehaviour {
 	void Start () {
 		soundPlayer = GameObject.Find("SoundPlayer").GetComponent<SoundPlayerScript>();
 		rigidbody2D.AddForce (new Vector2 (ballSpeed, ballSpeed), ForceMode2D.Impulse);
+
+		if (temporary) {
+			Destroy(gameObject, 5);
+		}
 	}
 	
 	void OnCollisionEnter2D(Collision2D other) {

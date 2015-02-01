@@ -28227,7 +28227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellAutoBottom: {fileID: 163444, guid: 494de289fb9b9774ca28bea706c632a3, type: 2}
+  spellAutoBottomButton: {fileID: 2018892964}
   ballSpawner: {fileID: 1119694814}
+  spawnNewBallButton: {fileID: 1525113614}
 --- !u!4 &943132430
 Transform:
   m_ObjectHideFlags: 0
@@ -31239,6 +31241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballPrefab: {fileID: 101026, guid: 40b65db1d8bcb9542897dd1dbe054162, type: 2}
+  ballTemporaryPrefab: {fileID: 101026, guid: d8c8446acdd6a85458aec1f8e8fb987d, type: 2}
   gameState: {fileID: 2128383177}
 --- !u!4 &1119694815
 Transform:
