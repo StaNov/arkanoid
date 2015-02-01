@@ -11,7 +11,7 @@ public class DeadBottomScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other) {
 		soundPlayer.PlayBallHitsDeadBottom();
 		Destroy(other.gameObject);
-		gameState.loseLife();
-		ballSpawner.SpawnBall ();
+		gameState.OnBallDestroyed();
+		ballSpawner.SpawnBall();
 	}
 }

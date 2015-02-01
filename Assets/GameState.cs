@@ -7,22 +7,25 @@ public class GameState : MonoBehaviour {
 	public GameObject gameOverPanel;
 	public BallSpawnerScript ballSpawner;
 	public SoundPlayerScript soundPlayer;
+	public Transform bricksParent;
 
 	public int lives = 3;
-	private int bricks = 1;
 
-	public void Start() {
-		bricks = GameObject.FindGameObjectsWithTag ("brick").Length;
+	void Start() {
 		ballSpawner.SpawnBall ();
 	}
 	
-	public void loseLife() {
+	public void OnBallDestroyed() {
 		lives--;
 		ShowGameOverScreenIfGameOver (false);
 	}
 	
-	public void destroyBrick() {
-		bricks--;
+	public void OnBrickDestroyed() {
+		StartCoroutine(ShowGameOverScreenIfGameOverNextFrame());
+	}
+	
+	private IEnumerator ShowGameOverScreenIfGameOverNextFrame() {
+		yield return new WaitForEndOfFrame();
 		ShowGameOverScreenIfGameOver (true);
 	}
 
@@ -31,7 +34,7 @@ public class GameState : MonoBehaviour {
 	}
 
 	public bool isGameOver() {
-		return lives <= 0 || bricks <= 0;
+		return lives == 0 || bricksParent.childCount == 0;
 	}
 
 	private void ShowGameOverScreenIfGameOver(bool win) {

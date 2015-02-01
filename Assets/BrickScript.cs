@@ -14,14 +14,10 @@ public class BrickScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other) {
 		GetComponent<MeshRenderer> ().enabled = false;
 		GetComponent<BoxCollider2D> ().enabled = false;
-		GetComponentInChildren<ParticleSystem> ().Play();
+		BrickParticleSystem particleSystem = GetComponentInChildren<BrickParticleSystem> ();
+		particleSystem.PlayAndDestroy();
 		soundPlayer.PlayBallHitsBrick();
-		StartCoroutine ("DestroyAfterSecond");
-		gameState.destroyBrick ();
-	}
-
-	IEnumerator DestroyAfterSecond() {
-		yield return new WaitForSeconds(1);
-		Destroy (gameObject);
+		Destroy(gameObject);
+		gameState.OnBrickDestroyed();
 	}
 }
