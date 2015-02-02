@@ -4,10 +4,10 @@ using UnityEngine.UI;
 
 public class GameState : MonoBehaviour {
 
-	public GameObject gameOverPanel;
 	public BallSpawnerScript ballSpawner;
 	public SoundPlayerScript soundPlayer;
 	public Transform bricksParent;
+	public GameOverPanelScript gameOverPanel;
 
 	public int lives = 3;
 
@@ -40,9 +40,8 @@ public class GameState : MonoBehaviour {
 	private void ShowGameOverScreenIfGameOver(bool win) {
 		if (isGameOver()) {
 			DestroyAllBalls();
-			gameOverPanel.SetActive(true);
 
-			SetGameOverText(win);
+			ShowGameOverPanel(win);
 
 			if (win) {
 				soundPlayer.PlayWin();
@@ -56,7 +55,11 @@ public class GameState : MonoBehaviour {
 		}
 	}
 
-	private void SetGameOverText(bool win) {
-		gameOverPanel.GetComponentInChildren<Text> ().text = win ? "Vyhrál jsi!" : "Prohrál jsi";
+	private void ShowGameOverPanel(bool win) {
+		if (win) {
+			gameOverPanel.ShowVictory();
+		} else {
+			gameOverPanel.ShowLose();
+		}
 	}
 }
